@@ -1,7 +1,9 @@
 name: Manual Workflow
 
 on: 
-  workflow_dispatch:  # Allows manual triggering of the workflow
+  issues:
+    types:
+       - opened n# Allows manual triggering of the workflow
 
 jobs:
   run-manual-task:
