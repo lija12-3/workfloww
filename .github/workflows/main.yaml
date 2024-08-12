@@ -1,17 +1,29 @@
-name: Issue Opened Workflow
+name: Manual Workflow with Inputs
 
-on: 
-  issues:
-    types:
-      - opened  # Triggers the workflow when an issue is opened
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'  # A description of the input
+        required: true  # Whether the input is required
+        default: 'staging'  # Default value if none is provided
+        type: string  # Type of the input (string in this case)
+      version:
+        description: 'Version of the application'
+        required: false
+        default: '1.0.0'
+        type: string
 
 jobs:
-  run-issue-task:
+  run-manual-task:
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v4  # This checks out the repository code
+        uses: actions/checkout@v4
 
-      - name: Echo Command
-        run: echo "An issue has been opened!"
+      - name: Echo Environment
+        run: echo "Deploying to the ${{ github.event.inputs.environment }} environment"
+
+      - name: Echo Version
+        run: echo "Deploying version ${{ github.event.inputs.version }}"
