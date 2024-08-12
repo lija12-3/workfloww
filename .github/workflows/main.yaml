@@ -1,13 +1,15 @@
-name: manual workflow
+name: Manual Workflow
 
 on: 
-  workflow_dispatch:
-   
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
 jobs:
   run-manual-task:
     runs-on: ubuntu-latest
 
     steps:
-        uses: actions/checkout@v4
+      - name: Check out the repository
+        uses: actions/checkout@v4  # This checks out the repository code
+
       - name: Echo Command
-        run: echo "A new commit has been pushed!"
+        run: echo "This is a manually triggered workflow!"
