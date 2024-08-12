@@ -1,12 +1,12 @@
-name: Manual Workflow
+name: Issue Opened Workflow
 
 on: 
   issues:
     types:
-       - opened n# Allows manual triggering of the workflow
+      - opened  # Triggers the workflow when an issue is opened
 
 jobs:
-  run-manual-task:
+  run-issue-task:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v4  # This checks out the repository code
 
       - name: Echo Command
-        run: echo "This is a manually triggered workflow!"
+        run: echo "An issue has been opened!"
