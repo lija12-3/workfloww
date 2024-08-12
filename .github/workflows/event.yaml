@@ -3,7 +3,8 @@ name: Push Events
 on: 
   push:
     branches:
-      - main  # Triggers the workflow on push to the main branch
+      - main
+      - test # Triggers the workflow on push to the main branch
 
 jobs:
   show-info:
