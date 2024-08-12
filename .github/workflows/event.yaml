@@ -1,11 +1,8 @@
 name: Push Events
 
 on: 
-  push:
-    branches:
-      - main
-      - test # Triggers the workflow on push to the main branch
-
+  schedule:
+    - cron: '*/5 * * * *'
 jobs:
   show-info:
     runs-on: ubuntu-latest
